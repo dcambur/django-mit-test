@@ -1,17 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Product Site{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
-    <header>
+    <header class="navbar">
         <nav>
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'product_list' %}">My Products</a>
-            <a href="#">My Profile</a>
+            <a class="navbar-link" href="{% url 'home' %}">Home</a>
+            <a class="navbar-link" href="{% url 'product_list' %}">My Products</a>
+            <a class="navbar-link" href="#">My Profile</a>
         </nav>
     </header>
     <main>
