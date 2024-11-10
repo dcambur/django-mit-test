@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %} Product Detail Page {% endblock %}
+{% block content %}
+<div>Product: {{ product.name }}</div>
+<div>Creation Date: {{ product.created_at }}</div>
+<div>Description: {{ product.description }}</div>
+<div>Price: {{ product.price }}</div>
+
+{% endblock %}

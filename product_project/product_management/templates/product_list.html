@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Product List Page {% endblock %}
+{% block content %}
+<div class="card-container">
+    {% for product in products %}
+        <div class="card">
+            <div>Product: {{ product.name }}</div>
+            <div>Creation Date: {{ product.created_at | date:"Y-m-d" }}</div>
+            <div>Summary: {{ product.description }}</div>
+            <div>Price: {{ product.price }}</div>
+            <div class="card-buttons">
+                <a href="{% url 'product_update' pk=product.pk %}">Modify</a>
+                <a href="{% url 'product_delete' pk=product.pk %}">Delete</a>
+            </div>
+        </div>
+        {% empty %}
+    <h1>No Products yet.</h1>
+    {% endfor %}
+</div>
+<div style="align-content: center;text-align: center;"><a href="{% url 'product_create' %}">Add New Product</a></div>
+{% endblock %}

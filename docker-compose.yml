@@ -2,9 +2,26 @@ version: '3'
 
 services:
   django:
+    container_name: product_app
     build: product_project/
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/product_project
+    environment:
+      DJANGO_SUPERUSER_USERNAME: some_username
+      DJANGO_SUPERUSER_PASSWORD: some_password
+      DJANGO_SUPERUSER_EMAIL: some_email@gmail.com
     ports:
       - "8000:8000"
+    depends_on:
+      - postgresql
+
+  postgresql:
+    container_name: product_db
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: some_password
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 10s
+      retries: 5
+      timeout: 5s
