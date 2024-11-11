@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sleep 15
 # Run database migrations
 python manage.py makemigrations
 python manage.py migrate
