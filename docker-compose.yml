@@ -8,10 +8,12 @@ services:
       DJANGO_SUPERUSER_USERNAME: some_username
       DJANGO_SUPERUSER_PASSWORD: some_password
       DJANGO_SUPERUSER_EMAIL: some_email@gmail.com
+      CELERY_BROKER: redis://redis:6379/0
     ports:
       - "8000:8000"
     depends_on:
       - postgresql
+      - redis
 
   postgresql:
     container_name: product_db
@@ -25,3 +27,20 @@ services:
       interval: 10s
       retries: 5
       timeout: 5s
+
+  redis:
+    container_name: product_redis
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      retries: 5
+      timeout: 5s
+
+  celery:
+    build: product_project/
+    command: celery -A product_project worker -l INFO
+    depends_on:
+      - django
+      - redis
