@@ -35,7 +35,7 @@ class ProductUpdate(BaseProductView, UpdateView, LoginRequiredMixin):
     fields = ["name", "description", "price"]
 
     def get_success_url(self):
-        return reverse_lazy('product_update', kwargs={"pk": self.object.pk})
+        return reverse_lazy('product_list', kwargs={"pk": self.object.pk})
 
     def get_queryset(self):
         return super().get_queryset().filter(user=self.request.user)
