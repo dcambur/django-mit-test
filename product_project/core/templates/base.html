@@ -11,8 +11,18 @@
     <header class="navbar">
         <nav>
             <a class="navbar-link" href="{% url 'home' %}">Home</a>
-            <a class="navbar-link" href="{% url 'product_list' %}">My Products</a>
-            <a class="navbar-link" href="#">My Profile</a>
+            <a class="navbar-link" href="{% url 'product_list' %}">All Products</a>
+
+            {% if user.is_authenticated %}
+                <a class="navbar-link" href="{% url 'user_profile_detail' pk=user.pk %}">{{ user.username }}'s Profile</a>
+                <form style="display: inline" action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="navbar-link" type="submit">Log Out</button>
+                </form>
+            {% else %}
+                <a class="navbar-link" href="{% url 'sign_up' %}">Sign Up</a>
+                <a class="navbar-link" href="{% url 'login' %}">Log In</a>
+            {% endif %}
         </nav>
     </header>
     <main>
