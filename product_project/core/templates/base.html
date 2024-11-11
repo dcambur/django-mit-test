@@ -14,7 +14,7 @@
             <a class="navbar-link" href="{% url 'product_list' %}">All Products</a>
 
             {% if user.is_authenticated %}
-                <a class="navbar-link" href="{% url 'user_profile' pk=user.pk %}">{{ user.username }}</a>
+                <a class="navbar-link" href="{% url 'user_profile_detail' pk=user.pk %}">{{ user.username }}'s Profile</a>
                 <form style="display: inline" action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
                     <button class="navbar-link" type="submit">Log Out</button>
