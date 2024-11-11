@@ -34,10 +34,7 @@ cd django-mit-test
 ### 1.1 Create .env File
 
 By default, docker-compose is configured to take it from the same path it is located in.
-Below you may find the configuration the example configuration.
-**Important:** SMTP settings are live and kicking, 
-you don't need to change it as mail notifications will work with current preset.
-(though I may close the access in the future)
+Below you may find the example configuration.
 
 ```dotenv
 # User Settings
