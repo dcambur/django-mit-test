@@ -13,6 +13,13 @@ The project is separated into three apps:
 as per condition the endpoints for the resource creation and 
 update are restricted to only the owners of the said products.
 
+P.S. there are things which can be done (but sadly I don't have time on them anymore):
+- Auth from Profile application separation 
+- Better frontend styling (using bootstrap for example)
+- Unit Tests
+- Deploy via gunicorn
+- Real time notification broadcasts for product creation to users
+
 ## Prerequisites
 
 Before starting, ensure you have the following installed:
