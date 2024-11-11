@@ -50,12 +50,12 @@ SECRET_KEY='django-insecure-6)@2e#++)4ggj%q9635+j&0)k&4p33^8yp3xx2u%vq+ip)+2ec'
 CELERY_BROKER=redis://redis:6379/0
 
 # Mail Settings
-EMAIL_HOST=box.bitcore.cloud
+EMAIL_HOST=<your-host>
 EMAIL_USE_TLS=True
-EMAIL_PORT=587
-EMAIL_HOST_USER=django@bitshort.link
-EMAIL_HOST_PASSWORD=RJw55P0d7iZpf7iW
-DEFAULT_FROM_EMAIL="Celery <django@bitshort.link>"
+EMAIL_PORT=<your-smtp-port>
+EMAIL_HOST_USER=<your-host-user>
+EMAIL_HOST_PASSWORD=<your-host-password>
+DEFAULT_FROM_EMAIL="Celery <your-host>"
 
 # Database Settings
 DB_NAME=postgres
