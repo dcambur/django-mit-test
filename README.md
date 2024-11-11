@@ -1,11 +1,17 @@
 # django-mit-test
 
-## Description
+## Summary
 
 **django-mit-test** is a web application built with **Django** and **Docker**, utilizing **PostgreSQL**
 for data storage and **Celery** for background tasks.
-It allows users to register, manage profiles, and receive welcome emails 
-upon registration.
+It allows users to register, manage profiles, and receive welcome emails upon registration.
+The project is separated into three apps:
+- **core** →  contains base template, css and home view
+- **product_auth** → handles authentication/authorization and user profiles management
+(which ideally should be separated into another app... but whatever)
+- **product_management** → handles CRUD for the Products, 
+as per condition the endpoints for the resource creation and 
+update are restricted to only the owners of the said products.
 
 ## Prerequisites
 
